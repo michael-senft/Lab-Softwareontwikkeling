@@ -40,12 +40,13 @@ namespace PokéDex
            MessageBox.Show("Retrieved " + res.Count + " pokemons");
             var s = PokemonDAL.DAL.GetPokemon(649);
             MessageBox.Show("Retrieved pokemon " + s.name);
-            for (int i = 1; i < 649; i++)
+            ListPokemons.ItemsSource = res;
+            /*for (int i = 1; i < 649; i++)
             {
                 
                 var temppok = PokemonDAL.DAL.GetPokemon(i);
                 ListPokemons.Items.Add(temppok.name);
-            }
+            }*/
         }
 
 
