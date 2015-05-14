@@ -1,42 +1,162 @@
-﻿<Window x:Class="PokéDex.MainWindow"
+﻿<Controls:MetroWindow x:Class="PokéDex.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        
                 Width="1200" Height="650"
                       Title="Pokédex" >
 
 
 
-  
+
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions  >
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="Auto"></ColumnDefinition>
-
-        </Grid.ColumnDefinitions>
-
-        <Button Name="BtnGetpokemon" Background="Red" Foreground="White" Grid.Row="0"
-                Grid.Column="1" Width="100" Height="25" Content="TEST"
-                Click="BtnGetpokemon_Click"></Button>
-        
-        <ListBox Name="ListPokemons" Grid.Row="1" Grid.Column="1" Width="150" Height="590" Background="Black" Foreground="White">
+        <ListBox x:Name="ListPokemons" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="150" Margin="10,60,0,0" SelectionChanged="ListPokemons_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding name}"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{Binding img}" Width="40" Height="40"></Image>
+                        <TextBlock Text="{Binding name}" TextAlignment="Center"></TextBlock>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
-        </ListBox> 
+        </ListBox>
+        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="115">
+            <Button x:Name="BtnGetpokemon" Content="Load Pokedex" Width="105" Click="BtnGetpokemon_Click"/>
+        </Button>
         
-       
-     
+        <Grid Name="InfoGrid">
+            <GroupBox Header="Pokemon" HorizontalAlignment="Left" Margin="175,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.203,-0.179" Height="285" Width="352">
+                
+                <Grid>
+                    
+                    
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition>
+                        </ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+
+                    </Grid.RowDefinitions>
+                    
+                                    <Image Grid.Column="0" x:Name="pokimage" Margin="10" Source="{Binding img}" ></Image>
+
+                            
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <StackPanel  Orientation="Horizontal">
+                                    
+                            
+                            <Label VerticalAlignment="Center" Content="ID : " ></Label>
+                            <TextBlock Margin="10" Text="{Binding id}" ></TextBlock>
+                                            
+                                </StackPanel>
+                        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                            <Label VerticalAlignment="Center" Content="Name : " ></Label>
+                            <TextBlock Margin="10" Text="{Binding name}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label VerticalAlignment="Center" Content="Type : " ></Label>
+                            <TextBlock Margin="10" Text="{Binding type[0]}"></TextBlock>
+                            <Label></Label>
+                            <Label></Label>
+                            <TextBlock Margin="10" Text="{Binding type[1]}"></TextBlock>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                    
+            </GroupBox>
+            <GroupBox Name="statsbox" Header="Stats" Margin="175,300,675,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="Health : " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="250" Value="{Binding stats.hp}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.hp}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label Content="Attack : " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="150" Value="{Binding stats.attack}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.attack}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <Label Content="Defense : " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="180" Value="{Binding stats.defense}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.defense}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <Label Content=" Special Attack : " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="150" Value="{Binding stats.spattack}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.spattack}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal">
+                        <Label Content="Special Defense: " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="190" Value="{Binding stats.spdefense}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.spdefense}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5" Orientation="Horizontal">
+                        <Label Content="Speed : " VerticalAlignment="Center"></Label>
+                        <ProgressBar Minimum="0" Maximum="150" Value="{Binding stats.speed}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding stats.speed}" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Grid>
+            </GroupBox>
+            <GroupBox  Header="Moves"  Margin="532,10,10,325">
+                <Grid Name="MovesGrid">
+                    <ListBox Name="MovesList" SelectionChanged="MovesList_SelectionChanged">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding moves}"></TextBlock>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+
+            </GroupBox>
+            <GroupBox Header="catch rate" Margin="535,300,10,190">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="Male: " HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.capturerate}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label Content="Female: "></Label>
+                        <TextBlock></TextBlock>
+                    </StackPanel>
+                </Grid>
+
+            </GroupBox>
+            <GroupBox Header="Abilities" Margin="535,435,10,10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <Label Content="Normal: " VerticalAlignment="Center"></Label>
+                        <TextBlock></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <Label Content="Hidden: " VerticalAlignment="Center"></Label>
+                        <TextBlock></TextBlock>
+                    </StackPanel>
+                </Grid>
+
+
+            </GroupBox>
+        </Grid>
+
     </Grid>
-</Window>
+</Controls:MetroWindow>

@@ -16,21 +16,27 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
+using MahApps.Metro.Controls;
+using System.Drawing;
 
 namespace PokéDex
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow 
+    public partial class MainWindow : MetroWindow
     {
-        
+        public ObservableCollection<Pokemon> allPokemon;
+
+        public Rootobject Pok;
 
         public MainWindow()
         {
             InitializeComponent();
-           
 
+            allPokemon = new ObservableCollection<Pokemon>() { };
+            //NameStat.Visibility = Visibility.Collapsed;
+            
         }
 
 
@@ -47,6 +53,29 @@ namespace PokéDex
                 var temppok = PokemonDAL.DAL.GetPokemon(i);
                 ListPokemons.Items.Add(temppok.name);
             }*/
+        }
+
+        private void ListPokemons_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            InfoGrid.DataContext = ListPokemons.SelectedItem;
+            
+            
+            Pokemon pokemon = ListPokemons.SelectedItem as Pokemon;
+            {
+                
+                //labelName.Text = pokemon.name;
+                //BitmapImage bm = new BitmapImage(new Uri(pokemon.img, UriKind.RelativeOrAbsolute));
+                //bm.MakeTransparent();
+                //MainPokImage.Source = bm;
+                //NameStat.Visibility = Visibility.Visible;
+                //NameStat.Content = pokemon.name;
+                //TypeStat.Content = pokemon.type.ToString();
+            }
+        }
+
+        private void MovesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
 
 
