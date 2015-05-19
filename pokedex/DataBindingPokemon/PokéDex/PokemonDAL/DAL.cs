@@ -38,12 +38,12 @@ namespace PokéDex.PokemonDAL
 
 
 
-            return null;
+            //return null;
         }
 
         public static Pokemon GetPokemon(int nr)
         {
-            Pokemon pokemon;
+            //Pokemon pokemon;
 
             if (allpokemons == null)
             { GetAllPokemon(); }

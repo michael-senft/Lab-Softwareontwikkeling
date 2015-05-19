@@ -59,7 +59,6 @@
                             <Label VerticalAlignment="Center" Content="Type : " ></Label>
                             <TextBlock Margin="10" Text="{Binding type[0]}"></TextBlock>
                             <Label></Label>
-                            <Label></Label>
                             <TextBlock Margin="10" Text="{Binding type[1]}"></TextBlock>
 
                         </StackPanel>
@@ -109,15 +108,136 @@
                     </StackPanel>
                 </Grid>
             </GroupBox>
-            <GroupBox  Header="Moves"  Margin="532,10,10,325">
+            <GroupBox  Header="Moves / damage"  Margin="532,10,10,325">
                 <Grid Name="MovesGrid">
-                    <ListBox Name="MovesList" SelectionChanged="MovesList_SelectionChanged">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding moves}"></TextBlock>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    
+                    <ListBox  Margin="20" Grid.Column="0" Name="MovesList" SelectionChanged="MovesList_SelectionChanged">
+
+                        <TextBlock Text="{Binding moves.egg[0].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[1].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[3].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[4].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[5].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[6].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[7].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[8].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[9].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[10].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[11].name}"></TextBlock>
+                        <TextBlock Text="{Binding moves.egg[12].name}"></TextBlock>
+                            
                     </ListBox>
+                    
+                    <ListBox Name="damagebox" Grid.Column="1" Margin="20">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Normal: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.normal}" Width="100" VerticalAlignment="Center" Margin="0" />
+                        <TextBlock Text="{Binding damages.normal}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Fire: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.fire}" Width="100" VerticalAlignment="Center" Margin="10,0,0,0" />
+                        <TextBlock Text="{Binding damages.fire}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Water: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.water}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.water}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Electric: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.electric}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.electric}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Grass: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.grass}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.grass}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Ice: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.ice}" Width="100" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                        <TextBlock Text="{Binding damages.ice}" HorizontalAlignment="Right"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Fight: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.fight}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.fight}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Poison: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.poison}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.poison}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Ground: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.ground}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.ground}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Flying: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.flying}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.flying}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Psychic"></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.psychic}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.psychic}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Bug: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.bug}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.bug}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Rock: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.rock}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.rock}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Ghost: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.ghost}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.ghost}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Dragon: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.dragon}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.dragon}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Dark: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.dark}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.dark}"></TextBlock>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Steel: "></Label>
+                        <ProgressBar Minimum="0" Maximum="4" Value="{Binding damages.steel}" Width="100" VerticalAlignment="Center" />
+                        <TextBlock Text="{Binding damages.steel}"></TextBlock>
+                        </StackPanel>
+
+                    </ListBox>
+                    
                 </Grid>
 
             </GroupBox>
@@ -129,11 +249,11 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <Label Content="Male: " HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.capturerate}"></TextBlock>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.capturerate}" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <Label Content="Female: "></Label>
-                        <TextBlock></TextBlock>
+                        <Label Content="Female: " VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.capturerate}" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                 </Grid>
 
@@ -146,11 +266,16 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
                         <Label Content="Normal: " VerticalAlignment="Center"></Label>
-                        <TextBlock></TextBlock>
-                    </StackPanel>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.abilities.normal[0]}" VerticalAlignment="Center"></TextBlock>
+                        <Label></Label>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.abilities.normal[1]}" VerticalAlignment="Center"></TextBlock>
+                         </StackPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <Label Content="Hidden: " VerticalAlignment="Center"></Label>
-                        <TextBlock></TextBlock>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.abilities.hidden[0]}" VerticalAlignment="Center"></TextBlock>
+                        <Label></Label>
+                        <TextBlock TextAlignment="Center" Margin="10" Text="{Binding misc.abilities.hidden[1]}" VerticalAlignment="Center"></TextBlock>
+                        
                     </StackPanel>
                 </Grid>
 

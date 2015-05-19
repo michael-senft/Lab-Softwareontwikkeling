@@ -44,8 +44,8 @@ namespace PokéDex
         {
            var res= PokemonDAL.DAL.GetAllPokemon();
            MessageBox.Show("Retrieved " + res.Count + " pokemons");
-            var s = PokemonDAL.DAL.GetPokemon(649);
-            MessageBox.Show("Retrieved pokemon " + s.name);
+            //var s = PokemonDAL.DAL.GetPokemon(649);
+            //MessageBox.Show("Retrieved pokemon " + s.name);
             ListPokemons.ItemsSource = res;
             /*for (int i = 1; i < 649; i++)
             {
