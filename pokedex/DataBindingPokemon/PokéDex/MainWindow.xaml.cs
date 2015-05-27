@@ -42,17 +42,26 @@ namespace PokéDex
 
         private void BtnGetpokemon_Click(object sender, RoutedEventArgs e)
         {
-           var res= PokemonDAL.DAL.GetAllPokemon();
-           MessageBox.Show("Retrieved " + res.Count + " pokemons");
-            //var s = PokemonDAL.DAL.GetPokemon(649);
-            //MessageBox.Show("Retrieved pokemon " + s.name);
-            ListPokemons.ItemsSource = res;
-            /*for (int i = 1; i < 649; i++)
+            try
             {
+                var res = PokemonDAL.DAL.GetAllPokemon();
+                MessageBox.Show("Retrieved " + res.Count + " pokemons");
+                //var s = PokemonDAL.DAL.GetPokemon(649);
+                //MessageBox.Show("Retrieved pokemon " + s.name);
+                ListPokemons.ItemsSource = res;
+                /*for (int i = 1; i < 649; i++)
+                {
                 
-                var temppok = PokemonDAL.DAL.GetPokemon(i);
-                ListPokemons.Items.Add(temppok.name);
-            }*/
+                    var temppok = PokemonDAL.DAL.GetPokemon(i);
+                    ListPokemons.Items.Add(temppok.name);
+                }*/
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Kon pokemons niet downloaden");
+            }
+            
         }
 
         private void ListPokemons_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -73,9 +82,47 @@ namespace PokéDex
             }
         }
 
-        private void MovesList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        
 
+        private void linqbtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<Pokemon> linqlist = (from pokelijst in PokemonDAL.DAL.GetAllPokemon()
+                                          where pokelijst.id == linqbox.Text
+                                          select pokelijst).ToList();
+                if (linqlist.Count() == 0)
+                {
+                    linqlist = (from pokelijst in PokemonDAL.DAL.GetAllPokemon()
+                                where pokelijst.name == linqbox.Text
+                                select pokelijst).ToList();
+                    if (linqlist.Count() == 0)
+                    {
+                        MessageBox.Show("pokemon niet gevonden");
+                    }
+                    
+                }
+                ListPokemons.ItemsSource = linqlist;
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("pokemon niet gevonden");
+            }
+        }
+
+        private void terugbtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var res = PokemonDAL.DAL.GetAllPokemon();
+                ListPokemons.ItemsSource = res;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
 

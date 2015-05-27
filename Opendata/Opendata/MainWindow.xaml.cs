@@ -76,6 +76,13 @@ namespace Opendata
             
         }
 
+        private void backbtn_Click(object sender, RoutedEventArgs e)
+        {
+            idlistbox.ItemsSource = wifi.openwifidata;
+            zoekbox.Text = "";
+            idlistbox.SelectedIndex = 0;
+        }
+
         
     }
 }

@@ -29,8 +29,10 @@
             <Border CornerRadius="5" BorderBrush="DarkGray" BorderThickness="3">
             <StackPanel Grid.Row="0" Orientation="Horizontal">
                 <Label Content="Zoeken: " FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"></Label>
-                <TextBox x:Name="zoekbox" Margin="10,4,10,4" Width="200" HorizontalAlignment="Left" Background="AliceBlue"></TextBox>
+                <TextBox x:Name="zoekbox" Margin="10,4,10,4" Width="150" HorizontalAlignment="Left" Background="AliceBlue"></TextBox>
                 <Button x:Name="zoekbtn" Content="zoeken" Padding="5" Height="12" Click="Button_Click"></Button>
+                    <Label></Label>
+                    <Button Name="backbtn" Content="terug" Padding="5" Height="12" Click="backbtn_Click"></Button>
                 
             </StackPanel>
             </Border>
