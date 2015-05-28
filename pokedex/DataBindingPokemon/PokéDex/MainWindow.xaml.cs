@@ -135,6 +135,37 @@ namespace PokéDex
 
     }
 
+    public class StringToImageConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            string format = value as string;
+            format = format.Replace(",", ".");
+            if (!string.IsNullOrEmpty(format))
+            {
+                int snelheid = System.Convert.ToInt16(format);
+                if (snelheid > 80)
+                {
+                    parameter = "https://cdnd.icons8.com/wp-content/uploads/2014/01/running_rabbit-128.png";
+                }
+                else if (snelheid <= 80)
+                {
+                    parameter = "https://cdnd.icons8.com/wp-content/uploads/2014/01/turtle-128.png";
+                }
+                return parameter;
+            }
+            else
+            {
+                return parameter.ToString();
+            }
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
 }
 
 

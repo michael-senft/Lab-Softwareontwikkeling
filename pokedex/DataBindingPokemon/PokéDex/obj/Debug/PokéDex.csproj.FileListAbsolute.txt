@@ -108,3 +108,4 @@ C:\Users\michaelsenft\Desktop\2de jaar\2de semester\Lab softwareontwikkeling\Lab
 C:\Users\michaelsenft\Desktop\2de jaar\2de semester\Lab softwareontwikkeling\Lab-Softwareontwikkeling\pokedex\DataBindingPokemon\PokéDex\obj\Debug\PokéDex.csproj.GenerateResource.Cache
 C:\Users\michaelsenft\Desktop\2de jaar\2de semester\Lab softwareontwikkeling\Lab-Softwareontwikkeling\pokedex\DataBindingPokemon\PokéDex\obj\Debug\App.baml
 C:\Users\michaelsenft\Desktop\2de jaar\2de semester\Lab softwareontwikkeling\Lab-Softwareontwikkeling\pokedex\DataBindingPokemon\PokéDex\obj\Debug\PokéDex_MarkupCompile.lref
+C:\Users\michaelsenft\Desktop\2de jaar\2de semester\Lab softwareontwikkeling\Lab-Softwareontwikkeling\pokedex\DataBindingPokemon\PokéDex\obj\Debug\GeneratedInternalTypeHelper.g.cs
